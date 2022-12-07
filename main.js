@@ -62,6 +62,8 @@ const posts = [
     }
 ];
 
+const likedPosts = [];
+
 
 // ? PRELIEVO DAL DOM INIZIALE
 const postsContainer = document.querySelector('#container');
@@ -122,21 +124,22 @@ const likesCounterElements = document.querySelectorAll('.post .js-likes-counter'
 // * EVENTI E TIMING FUNCTIONS
 likeBtnElements.forEach((likeBtnElement , index)=>{
     let likePut = false;
-    const likedPosts = [];
     
     
     likeBtnElement.addEventListener('click',()=>{
         let likesCounter = posts[index]['likes'];
-        likesCounterElements[index].innerHTML = posts[index]['likes'];
 
         if(!likePut) {
             likeBtnElement.classList.add('like-button--liked');
             likesCounter++;
             likesCounterElements[index].innerHTML = likesCounter;
-            const likedPost = posts[index]['id'];
-            likedPosts.push(likedPost);
+            const likedPostId = posts[index]['id'];
+            likedPosts.push(likedPostId);
             console.log(likedPosts);
+            
         }
+
+        likePut = true;
     })
 })
 
