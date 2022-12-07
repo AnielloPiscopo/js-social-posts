@@ -114,9 +114,32 @@ posts.forEach(post=>{
     postsContainer.append(postElement);
 })
 
+const postElements = document.querySelectorAll('.post');
+const likeBtnElements = document.querySelectorAll('.post .js-like-button');
+const likesCounterElements = document.querySelectorAll('.post .js-likes-counter')
 
 
 // * EVENTI E TIMING FUNCTIONS
+likeBtnElements.forEach((likeBtnElement , index)=>{
+    let likePut = false;
+    const likedPosts = [];
+    
+    
+    likeBtnElement.addEventListener('click',()=>{
+        let likesCounter = posts[index]['likes'];
+        likesCounterElements[index].innerHTML = posts[index]['likes'];
+
+        if(!likePut) {
+            likeBtnElement.classList.add('like-button--liked');
+            likesCounter++;
+            likesCounterElements[index].innerHTML = likesCounter;
+            const likedPost = posts[index]['id'];
+            likedPosts.push(likedPost);
+            console.log(likedPosts);
+        }
+    })
+})
+
 
 
 
@@ -130,11 +153,11 @@ FUNZIONI*/
 
 // * FUNZIONE PER CREARE UN ELEMENTO HTML CON UNA O PIU' CLASSI
 function getAnElementWithClasses(element , ...elementClasses){
-let htmlElement = document.createElement(element);
+    let htmlElement = document.createElement(element);
 
-elementClasses.forEach(elementClass =>{
-    htmlElement.classList.add(elementClass);
-})
+    elementClasses.forEach(elementClass =>{
+        htmlElement.classList.add(elementClass);
+    })
 
-return htmlElement;
+    return htmlElement;
 }
