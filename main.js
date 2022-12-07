@@ -61,10 +61,8 @@ const posts = [
         "created": "2021-03-05"
     }
 ];
-const currentDate = new Date(posts[0]['created']);
-console.log(currentDate.toLocaleDateString('ita'));
 
-const likedPosts = [];
+let likedPosts = [];
 
 
 // ? PRELIEVO DAL DOM INIZIALE
@@ -83,12 +81,13 @@ posts.forEach(post=>{
 
     const postDate = new Date(post['created']);
     const postDateItalianFormat = postDate.toLocaleDateString('ita');
+    const postAuthorNameInitials = post['author']['name'].replace(/[a-z]/g,'');
 
     postElement.innerHTML = `
         <div class="post__header">
             <div class="post-meta">                    
                 <div class="post-meta__icon">
-                    <img class="profile-pic" src="${post['author']['image']}" alt="immagine di profilo di ${post['author']['name']}" title="immagine di profilo di ${post['author']['name']}">                    
+                    <img class="profile-pic" src="${post['author']['image']}" alt="${postAuthorNameInitials}" title="immagine di profilo di ${post['author']['name']}">                    
                 </div>
                 <div class="post-meta__data">
                     <div class="post-meta__author">${post['author']['name']}</div>
@@ -140,11 +139,19 @@ likeBtnElements.forEach((likeBtnElement , index)=>{
             likesCounterElements[index].innerHTML = likesCounter;
             const likedPostId = posts[index]['id'];
             likedPosts.push(likedPostId);
-            console.log(likedPosts);
-            
+            likePut = true;
+            console.log(likedPosts);   
+        }else{
+            likeBtnElement.classList.remove('like-button--liked');
+            likesCounterElements[index].innerHTML = likesCounter;
+            const likedPostId = posts[index]['id'];
+            likedPosts = likedPosts.filter((likedPost)=>{
+                return likedPost != likedPostId;
+            });
+            likePut = false;
+            console.log(likedPosts); 
         }
 
-        likePut = true;
     })
 })
 
