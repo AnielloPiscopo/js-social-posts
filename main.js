@@ -87,3 +87,14 @@ const posts = [
  
  /*----------------------------------------------------------------------
  FUNZIONI*/
+ 
+ // * FUNZIONE PER CREARE UN ELEMENTO HTML CON UNA O PIU' CLASSI
+ function getAnElementWithClasses(element , ...elementClasses){
+    let htmlElement = document.createElement(element);
+ 
+    elementClasses.forEach(elementClass =>{
+        htmlElement.classList.add(elementClass);
+    })
+ 
+    return htmlElement;
+ }
