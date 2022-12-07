@@ -1,3 +1,9 @@
+/*----------------------------------------------------------------------
+DICHIARAZIONI E INIZIALIZZAZIONI GENERALI*/
+
+// * INIZIALIZZAZIONI
+
+// ? ARRAY E OGGETTI DI PARTENZA
 const posts = [
     {
         "id": 1,
@@ -55,3 +61,29 @@ const posts = [
         "created": "2021-03-05"
     }
 ];
+ 
+ 
+ // ? PRELIEVO DAL DOM INIZIALE
+ 
+ 
+ 
+ 
+ 
+ /*----------------------------------------------------------------------
+ CODICE PRINCIPALE*/
+ 
+ // * CODICE LINEARE
+ 
+ 
+ 
+ // * EVENTI E TIMING FUNCTIONS
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ /*----------------------------------------------------------------------
+ FUNZIONI*/
