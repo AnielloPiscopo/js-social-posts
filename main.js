@@ -76,13 +76,18 @@ const postsContainer = document.querySelector('#container');
 CODICE PRINCIPALE*/
 
 // * CODICE LINEARE
+
+// ? CREATI I VARI POST DELLA PAGINA
 posts.forEach(post=>{
+    // * Creazione degli elementi HTML
     const postElement = getAnElementWithClasses('article' , 'post');
 
+    // * Cambiamento delle varie date dei post
     const postDate = new Date(post['created']);
     const postDateItalianFormat = postDate.toLocaleDateString('ita');
     const postAuthorNameInitials = post['author']['name'].replace(/[a-z]/g,'');
 
+    // * Modifica del contenuto di HTML
     postElement.innerHTML = `
         <div class="post__header">
             <div class="post-meta">                    
@@ -117,9 +122,11 @@ posts.forEach(post=>{
         </div>            
     `;
 
+    // * Messa nel documento dell'elemento
     postsContainer.append(postElement);
 })
 
+// ? CREAZIONE DEGLI ARRAY LEGATI AGLI ELEMENTI PRESENTI NEL DOM CHE SONO STATI CREATI PRECEDENTEMENTE
 const postElements = document.querySelectorAll('.post');
 const likeBtnElements = document.querySelectorAll('.post .js-like-button');
 const likesCounterElements = document.querySelectorAll('.post .js-likes-counter')
@@ -130,6 +137,7 @@ likeBtnElements.forEach((likeBtnElement , index)=>{
     let likePut = false;
     
     
+    // ? CLICK AL BOTTONE DEI SINGOLI LIKE
     likeBtnElement.addEventListener('click',()=>{
         let likesCounter = posts[index]['likes'];
 
@@ -151,7 +159,6 @@ likeBtnElements.forEach((likeBtnElement , index)=>{
             likePut = false;
             console.log(likedPosts); 
         }
-
     })
 })
 
