@@ -1,9 +1,9 @@
 <div align="center">
 <h1 align="center">
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style&logo=JavaScript&logoColor=black" alt="JavaScript" />
-<br>JS-PWDGEN-WANNABE
+<br>JS-SOCIAL-POSTS
 </h1>
-<h3>◦ Simple page containing the fizzbuzz game made with HTML, CSS , bootstrap and JS</h3>
+<h3>◦ Simple page containing simple posts in order to emulate any type of messagistic app made with HTML, CSS , bootstrap and JS</h3>
 <h3>◦ Developed during the course of Full-Stack Web Developer with Boolean</h3>
 <h3>◦ Link: https://aniellopiscopo.github.io/js-social-posts/</h3>
 
